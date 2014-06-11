@@ -4,6 +4,8 @@ This is a simple, dependency free implementation of the Command Pattern in PHP. 
 
 # Usage
 
+This will create a group of Commands with a certain name.
+
         class RegisterAction extends ActionChain {
 
             public function __construct() {
@@ -13,7 +15,7 @@ This is a simple, dependency free implementation of the Command Pattern in PHP. 
 
         }
 
-This will create a group of Commands with a certain name.
+These are the individual command examples
 
         class RegisterUserAction extends Command {
 
@@ -30,3 +32,11 @@ This will create a group of Commands with a certain name.
                 // eg: code to "undo" anything this command would have done
             }
         }
+
+Once your commands are built, you can just call them from the routes: ( example using Symfony's Request )
+
+        Route::get('/register', function() {
+
+            $reg = new RegisterAction();
+            $reg->execute(Request::createFromGlobals());
+        });
