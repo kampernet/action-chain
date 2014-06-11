@@ -1,0 +1,16 @@
+{
+    "name": "kampernet/action-chain",
+    "description": "Action chain helper classes for implementing commands",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Cookie Delicious",
+            "email": "kampernet@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Kampernet\\Action": "src/"
+        }
+    }
+}
