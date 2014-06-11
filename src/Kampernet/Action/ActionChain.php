@@ -69,7 +69,7 @@ abstract class ActionChain implements CommandInterface, Iterator {
 	 *
 	 * @see CommandInterface::execute()
 	 */
-	final public function execute($request) {
+	final public function execute($request, $response = null) {
 
 		/**
 		 * @var \Kampernet\Action\CommandInterface $command
@@ -77,7 +77,7 @@ abstract class ActionChain implements CommandInterface, Iterator {
 		$previous = null;
 		foreach ($this as $command) {
 			$command->previous = $previous;
-			if ($command->execute($request)) {
+			if ($command->execute($request, $response)) {
 				$previous = $command;
 			} else {
 				do {
