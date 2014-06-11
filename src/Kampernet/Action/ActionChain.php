@@ -81,6 +81,7 @@ abstract class ActionChain implements CommandInterface, Iterator {
 				$previous = $command;
 			} else {
 				do {
+					// call each previous commands undo
 					$command = $command->undo();
 				} while ($command);
 
