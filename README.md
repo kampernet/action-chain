@@ -19,9 +19,13 @@ These are the individual command examples
 
         class RegisterUserAction extends Command {
 
-            public function execute($request) {
+            private $request;
+            private $response;
+
+            public function execute($request, $response = null) {
 
                 $this->request = $request;
+                $this->response = $response;
 
                 // eg: code to take the request data and persist the user
                 // probably more likely to call a service or domain model method here.
@@ -37,6 +41,11 @@ Once your commands are built, you can just call them from the routes: ( example 
 
         Route::get('/register', function() {
 
+            $response = new Response();
             $reg = new RegisterAction();
-            $reg->execute(Request::createFromGlobals());
+            if (!$reg->execute(Request::createFromGlobals(), $response)) {
+                $reg->undo();
+            }
+
+            return $response;
         });
