@@ -14,7 +14,7 @@ interface CommandInterface {
 	 * @param Object $request
 	 * @return boolean
 	 */
-	public function execute(&$request);
+	public function execute($request);
 
 	/**
 	 * The command undo method

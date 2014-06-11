@@ -8,7 +8,7 @@ use Iterator;
  *
  * @package Kampernet\Action
  */
-class ActionChain implements CommandInterface, Iterator {
+abstract class ActionChain implements CommandInterface, Iterator {
 
 	private $index = 0;
 
@@ -69,7 +69,7 @@ class ActionChain implements CommandInterface, Iterator {
 	 *
 	 * @see CommandInterface::execute()
 	 */
-	final public function execute(&$request) {
+	final public function execute($request) {
 
 		/**
 		 * @var \Kampernet\Action\CommandInterface $command
