@@ -2,7 +2,7 @@
 
 This is a simple, dependency free implementation of the Command Pattern in PHP.  Useful for creating an orchestration layer
 
-# Usage
+#### Usage
 
 This will create a group of Commands with a certain name.
 
