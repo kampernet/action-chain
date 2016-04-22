@@ -11,8 +11,8 @@ interface CommandInterface {
 	/**
 	 * The command execute method
 	 *
-	 * @param Object $request
-	 * @param Object $response
+	 * @param mixed $request
+	 * @param mixed $response
 	 * @return boolean
 	 */
 	public function execute($request, $response = null);
